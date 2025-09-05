@@ -58,7 +58,7 @@ namespace _01_DeclaracaoClasse
             aluno1.LancarNotas(2, 8.0);
             aluno1.LancarNotas(3, 9.9);
             aluno1.LancarNotas(4, 10.0);
-            //aluno1.CalculaMedia();
+            Console.WriteLine($"Média do Aluno {aluno1.Nome}: {aluno1.CalculaMedia():N2}");
             Console.WriteLine($"Mensão do Aluno: {aluno1.Mencao()}");
             
         }
@@ -185,12 +185,12 @@ namespace _01_DeclaracaoClasse
         }
 
         public string Mencao()
-        {
-           
-            if (CalculaMedia() >= 5.0)
-                return "Aprovado";
-            else
-                return "Reprovado";
+        {   
+            //if (CalculaMedia() >= 5.0)
+            //    return "Aprovado";
+            //else
+            //    return "Reprovado";
+            return (CalculaMedia() >= 5.0) ? "Aprovado" : "Reprovado";
         }
 
     }
