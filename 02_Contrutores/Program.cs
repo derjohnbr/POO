@@ -44,9 +44,10 @@ namespace _02_Contrutores
 
         //Overloading: Sobrecarga de Construtor
         //Construtor Default
-        public Quadrado()
+        //this(5): chama o construtor que recebe um inteiro
+        public Quadrado():this(5)
         {
-            Lado = 5;
+            //Lado = 5;
         }
 
         //Construtor
@@ -55,7 +56,8 @@ namespace _02_Contrutores
         public Quadrado(int Lado)
         {
             //this: acessa o menbro da classe
-            this.Lado = Lado;
+            if(Lado > 0)
+                this.Lado = Lado;
         }
 
         //Métodos
