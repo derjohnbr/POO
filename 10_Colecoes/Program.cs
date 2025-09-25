@@ -37,6 +37,34 @@ namespace _10_Colecoes
                 aluno.ImpremirAluno();
             }
 
+            Dictionary<int, string> dicNomes = new Dictionary<int, string>();
+            dicNomes.Add(1, "Gustavo");
+            dicNomes.Add(2, "Celso");
+            dicNomes.Add(3, "Suely");
+            //Não pode adicionar chave duplicada no Dicionário
+            //dicNomes.Add(3, "Suely");
+
+            Console.WriteLine($"Impressão dos dicNomes");
+            for (int i = 1; i <= dicNomes.Count; i++)
+            {
+                Console.WriteLine($" - {dicNomes[i]}");
+            }
+
+            Dictionary<int, Aluno> dicAlunos = new Dictionary<int, Aluno>();
+            dicAlunos.Add(suely.id, suely);
+            dicAlunos.Add(celso.id, celso);
+
+            Console.WriteLine($"Impressão dos dicAlunos");
+            //for (int i = 1; i <= dicAlunos.Count; i++)
+            //{
+            //    dicAlunos[i].ImpremirAluno();
+            //}
+
+            foreach (Aluno aluno in dicAlunos.Values)
+            {
+                aluno.ImpremirAluno();
+            }
+
         }
 
         class Aluno
