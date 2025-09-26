@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _12_ColecaoFila
+namespace _13_ColecaoPilha
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Queue<string> nomes = new Queue<string>();
-            Console.WriteLine("Digite pelo menos 4 nomes e [I] Imprimir ou [S] Sair:/n");
+            Stack<string> nomes = new Stack<string>();
+            Console.WriteLine("Digite pelo menos 5 nomes e [I] Imprimir o Ultimo ou [S] Sair:/n");
             int cont = 1;
             while (true)
             {                
@@ -23,21 +23,15 @@ namespace _12_ColecaoFila
 
                 if (string.Equals(entrada, "I", StringComparison.OrdinalIgnoreCase))
                 {
-                    if (nomes.Count < 4)
+                    if (nomes.Count < 5)
                     {
-                        Console.WriteLine("Você deve informar pelo menos 4 nomes para imprimir a fila. Tente novamente.");
+                        Console.WriteLine("Você deve informar pelo menos 5 nomes para imprimir a fila. Tente novamente.");
                         continue;
                     }
-                    Console.WriteLine("Impressão da fila de nomes:");
-                    Console.WriteLine($" 1º Atendimento - {nomes.Dequeue()}.");
-                    Console.WriteLine($" 2º Atendimento - {nomes.Dequeue()}.");
-                    Console.WriteLine($" 3º Atendimento - {nomes.Dequeue()}.");
 
-                    Console.WriteLine($"\nDemais Atendimento:");
-                    foreach (string nome in nomes)
-                    {
-                        Console.WriteLine($" - {nome}.");
-                    }
+                    Console.WriteLine("Impressão da fila de nomes:");
+                    Console.WriteLine($" Ultimo Nome digitado: {nomes.Pop()}.");
+
 
                     continue;
                 }
@@ -49,7 +43,7 @@ namespace _12_ColecaoFila
                 }
 
                 // adicionar nome
-                nomes.Enqueue(entrada);
+                nomes.Push(entrada);
 
                 cont++;
 
