@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,6 +64,46 @@ namespace _10_Colecoes
             foreach (Aluno aluno in dicAlunos.Values)
             {
                 aluno.ImpremirAluno();
+            }
+
+            Queue<string> filaNomes = new Queue<string>();
+            filaNomes.Enqueue("Gustavo");
+            filaNomes.Enqueue("Celso");
+            filaNomes.Enqueue("Suely");
+
+            Console.WriteLine($"Impressão dos filaNomes");
+            Console.WriteLine($" 1º {filaNomes.Dequeue()}.");
+
+            foreach (string nome in filaNomes)
+            {
+                Console.WriteLine($" - {nome}.");
+            }
+
+            Stack<string> pilhaNomes = new Stack<string>();
+            pilhaNomes.Push("Gustavo");
+            pilhaNomes.Push("Celso");
+            pilhaNomes.Push("Suely");
+            Console.WriteLine($"Impressão dos pilhaNomes");
+            Console.WriteLine($" 1º {pilhaNomes.Pop()}.");               
+
+            foreach (string nome in pilhaNomes)
+            {
+                Console.WriteLine($" - {nome}.");
+            }
+
+            HashSet<string> setNomes = new HashSet<string>();
+            setNomes.Add("Gustavo");
+            setNomes.Add("Celso");
+            setNomes.Add("Suely");
+            //Não permite repetição
+            setNomes.Add("Gustavo");
+            setNomes.Add("Celso");
+            setNomes.Add("Suely");
+
+            Console.WriteLine($"Impressão dos setNomes");
+            foreach (string nome in setNomes)
+            {
+                Console.WriteLine($" - {nome}.");
             }
 
         }
