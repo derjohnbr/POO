@@ -32,7 +32,6 @@ namespace _13_ColecaoPilha
                     Console.WriteLine("Impressão da fila de nomes:");
                     Console.WriteLine($" Ultimo Nome digitado: {nomes.Pop()}.");
 
-
                     continue;
                 }
 
