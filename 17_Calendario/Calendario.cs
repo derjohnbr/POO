@@ -66,20 +66,7 @@ namespace _17_Calendario
                 {
                     if (calendario[semana, diaSemana] != 0)
                     {
-                        /*ehFeriado = false;
-
-                        for (int posicaoFeriados = 0; posicaoFeriados < diasFeriados.Length ; posicaoFeriados++)
-                        {
-                            if( diasFeriados[posicaoFeriados] != null && diasFeriados[posicaoFeriados].Dia == calendario[semana,diaSemana]) 
-                            {
-                                ehFeriado = true;
-                                break;
-                            }
-                        }*/
-
-                        //if (diasFeriados.Contains(calendario[semana, diaSemana]) || diaSemana == 0)
-                        //if (ehFeriado || diaSemana == 0)
-                        if (diasFeriados.Any( feriado => feriado != null && feriado.Dia == calendario[semana,diaSemana] )|| diaSemana == 0)
+                        if (diasFeriados.Any( feriado => feriado != null && feriado.Dia == calendario[semana,diaSemana] )|| diaSemana == (int)DiaDaSemana.Domingo)
                             Console.ForegroundColor = ConsoleColor.Red;
 
                         Console.Write(calendario[semana, diaSemana].ToString("D2") + "\t");
@@ -95,13 +82,9 @@ namespace _17_Calendario
             }
 
             Console.Write("\nFeriados: ");
-            /*for (int i = 0; i < diasFeriados.Length; i++)
-            {
-                if (diasFeriados[i] > 0)
-                {
-                    Console.Write($"{diasFeriados[i].ToString("D2")}\t");
-                }
-            }*/
+
+            //diasFeriados.Sort((x, y) => x.Dia.CompareTo(y.Dia)); //Lambda
+            diasFeriados.Sort(); //Usando IComparable implementado na classe Feriado
             foreach (Feriado diaFeriado in diasFeriados)
             {
                 if (diaFeriado != null)                
@@ -114,8 +97,6 @@ namespace _17_Calendario
         private List<Feriado> RetornaFeriados()
         {
             List<Feriado> feriados = new List<Feriado>();
-
-            //int indice = 0;
                        
             if (mes == Mes.Janeiro) feriados.Add(new Feriado(1,"Confraternização Universal"));
             else if (mes == Mes.Abril)

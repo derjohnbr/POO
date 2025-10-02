@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace _17_Calendario
 {
-    internal class Feriado
+    internal class Feriado : IComparable<Feriado>
     {
-        public int Dia {  get; set; }
-        public string Descricao {  get; set; }
+        public int Dia { get; set; }
+        public string Descricao { get; set; }
 
         public Feriado(int dia, string descricao)
         {
-            this.Dia = dia;
-            this.Descricao = descricao;
+            Dia = dia;
+            Descricao = descricao;
+        }
+
+        // Implementação do método CompareTo
+        public int CompareTo(Feriado other)
+        {
+            if (other == null) return 1;
+            //Ordem crescente
+            return this.Dia.CompareTo(other.Dia);
+
+            //Ordem decrescente 
+            //return other.Dia.CompareTo(this.Dia);
         }
     }
 }
