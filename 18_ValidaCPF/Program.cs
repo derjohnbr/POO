@@ -1,32 +1,15 @@
 ﻿using System;
-using System.Text.RegularExpressions;
-using ValidadorCPF;
-using ValidadorDocumento;
-// using ValidadorCPF; // ajuste para o namespace onde estão IDocumento, CPF, CNPJ
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-class Program
+namespace _18_ValidaCPF
 {
-    static void Main()
+    internal class Program
     {
-        Console.Write("Digite CPF ou CNPJ: ");
-        string entrada = Console.ReadLine() ?? "";
-
-        string numeros = Regex.Replace(entrada, @"\D", ""); // só dígitos
-
-        IDocumento doc = null;
-        if (numeros.Length == 11)
-            doc = new CPF(entrada);
-        else if (numeros.Length == 14)
-            doc = new CNPJ(entrada);
-
-        if (doc == null)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Informe um CPF (11 dígitos) ou CNPJ (14 dígitos).");
-            return;
         }
-
-        Console.WriteLine(doc.Validar()
-            ? $"{doc.GetType().Name} VÁLIDO"
-            : $"{doc.GetType().Name} INVÁLIDO");
     }
 }
